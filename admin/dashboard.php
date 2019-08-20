@@ -10,7 +10,6 @@
   $db = $database->getConnection();
   $count = new Dashboard($db);
   date_default_timezone_set('Asia/Manila');
-
   $firstname = $_SESSION['firstname'];
   $lastname = $_SESSION['lastname'];
 ?>

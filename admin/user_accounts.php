@@ -5,15 +5,8 @@
   $db = $database->getConnection();
   date_default_timezone_set('Asia/Manila');
   session_start();
-    if ($_SESSION['id']) {
-      $id=$_SESSION['id'];
-      $firstname=$_SESSION['firstname'];
-      $lastname=$_SESSION['lastname'];
-    }
-    else {
-      header("location:../login.php");
-    }  
-    
+  $firstname=$_SESSION['firstname'];
+  $lastname=$_SESSION['lastname'];
 ?>
 
 <?php 
@@ -107,11 +100,7 @@
                   </td>
                 </tr>
                 <?php 
-                  $number = mt_rand(100000,999999);
-                  $parts = str_split($number, 3);
-                  include 'add_user_form.php';
                   include 'update_user_form.php';
-                  
                 ?>
 
                 <?php
@@ -179,6 +168,9 @@
 </script>
 
 <?php
+  $number = mt_rand(100000,999999);
+  $parts = str_split($number, 3);
+  include 'add_user_form.php';
   include 'add_user.php';
   include 'update_user.php';
 

@@ -5,14 +5,8 @@
   $db = $database->getConnection();
   date_default_timezone_set('Asia/Manila');
   session_start();
-    if($_SESSION['id']) {
-      $id = $_SESSION['id'];
-      $firstname = $_SESSION['firstname'];
-      $lastname = $_SESSION['lastname'];
-    }
-    else {
-      header("location:../login.php");
-    }  
+  $firstname = $_SESSION['firstname'];
+  $lastname = $_SESSION['lastname'];
 ?>
 
 <?php 
