@@ -310,7 +310,7 @@ class Accounts {
 
     function read() {
         //select all data
-        $query = "SELECT * FROM " . $this->table_name . " WHERE userlevel = 'admin'";  
+        $query = "SELECT * FROM " . $this->table_name . " WHERE access_level = 'Admin'";  
  
         $stmt = $this->conn->prepare($query);
         $stmt->execute();
@@ -422,7 +422,7 @@ class Accounts {
     function enable() {
         $query = "UPDATE " . $this->table_name . "
         SET
-            user_status = 'active'
+            status = 1
         WHERE 
             id = :id";
     
@@ -445,7 +445,7 @@ class Accounts {
     function disable() {
         $query = "UPDATE " . $this->table_name . "
         SET
-            user_status = 'inactive'
+            status = 0
         WHERE 
             id = :id";
     
