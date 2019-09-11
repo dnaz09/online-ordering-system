@@ -10,14 +10,14 @@ include_once "login_checker.php";
  
 // include classes
 include_once "config/database.php";
-include_once "objects/user.php";
+include_once "objects/Accounts.php";
  
 // get database connection
 $database = new Database();
 $db = $database->getConnection();
  
 // initialize objects
-$user = new User($db);
+$user = new Accounts($db);
  
 
 ?>

@@ -2,10 +2,13 @@
   include '../config/database.php';
   include '../objects/Orders.php';
   include '../objects/Sales.php';
+  // core configuration
+  include_once "../config/core.php";
+  // check if logged in as admin
+  include_once "login_checker.php";
   $database = new Database();
   $db = $database->getConnection();
   date_default_timezone_set('Asia/Manila');
-  session_start();
   $firstname = $_SESSION['firstname'];
   $lastname = $_SESSION['lastname'];
 ?>
