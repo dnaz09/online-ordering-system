@@ -1,10 +1,10 @@
 <?php
   include_once '../objects/Accounts.php';
   include '../config/database.php';
-    // core configuration
-    include_once "../config/core.php";
-    // check if logged in as admin
-    include_once "login_checker.php";
+  // core configuration
+  include_once "../config/core.php";
+  // check if logged in as admin
+  include_once "login_checker.php";
   $database = new Database();
   $db = $database->getConnection();
   date_default_timezone_set('Asia/Manila');
@@ -43,7 +43,7 @@
           <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
             <thead>
               <tr class="text-center font-weight-bold">
-                <th>User ID</th>
+                <th>Email Address</th>
                 <th>Name</th>
                 <th>Userlevel</th>
                 <th>Status</th>
@@ -62,17 +62,17 @@
               
               echo "
                 <tr class='text-center'>
-                  <td>$user_id</td>
+                  <td>$email</td>
                   <td>$firstname $lastname</td>
-                  <td>$userlevel</td>
+                  <td>$access_level</td>
               ";
             ?>
                   <td>
                   <?php
-                      if ($user_status == 'active') {
+                      if ($status == 1) {
                         echo "<span class='badge badge-pill badge-success'>Active</span>";
                       }
-                      else if ($user_status == 'inactive') {
+                      else if ($status == 0) {
                         echo "<span class='badge badge-pill badge-danger'>Inactive</span>";
                       }     
                   ?>
@@ -81,11 +81,11 @@
                     <form method="POST">      
                       <input type="hidden" name="id" value="<?php echo $id; ?>"/>
                       <?php
-                        if ($user_status == 'active') {
+                        if ($status == 1) {
                           echo '<button type="submit" class="btn btn-danger btn-sm" name="disable"><i class="fa fa-times"></i> Disable</button>';
                         }
 
-                        else if ($user_status == 'inactive') {
+                        else if ($status == 0) {
                           echo '<button type="submit" class="btn btn-success btn-sm" name="enable"><i class="fa fa-check"></i> Enable</button>';
                         }
                       ?>

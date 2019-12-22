@@ -17,14 +17,14 @@ if($_POST) {
 
 // include classes
 include_once "config/database.php";
-include_once "objects/user.php";
+include_once "objects/Accounts.php";
  
 // get database connection
 $database = new Database();
 $db = $database->getConnection();
  
 // initialize objects
-$user = new User($db);
+$user = new Accounts($db);
  
 // check if email and password are in the database
 $user->email=$_POST['email'];
