@@ -25,6 +25,17 @@ class User{
         $this->conn = $db;
     }
 
+    function read() {
+        //select all data
+        $query = "SELECT * FROM " . $this->table_name . " WHERE userlevel = 'admin'";  
+ 
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute();
+ 
+        return $stmt;
+    }
+
+
     // check if given email exist in the database
     function emailExists(){
  
@@ -79,17 +90,17 @@ class User{
     
         // insert query
         $query = "INSERT INTO " . $this->table_name . "
-                SET
-            firstname = :firstname,
-            lastname = :lastname,
-            email = :email,
-            contact_number = :contact_number,
-            address = :address,
-            password = :password,
-            access_level = :access_level,
-            access_code = :access_code,
-            status = :status,
-            created = :created";
+                    SET
+                    firstname = :firstname,
+                    lastname = :lastname,
+                    email = :email,
+                    contact_number = :contact_number,
+                    address = :address,
+                    password = :password,
+                    access_level = :access_level,
+                    access_code = :access_code,
+                    status = :status,
+                    created = :created";
     
         // prepare the query
         $stmt = $this->conn->prepare($query);
